@@ -1,11 +1,10 @@
+
 import React, { useState, useMemo, useCallback } from 'react';
 import { AppView, Course, Semester } from './types';
 import Navbar from './components/Navbar';
 import Timetable from './components/Timetable';
 import MajorRecommender from './components/MajorRecommender';
-import LiberalArtsRecommender from './components/LiberalArtsRecommender';
 import CourseChatbot from './components/CourseChatbot';
-import Board from './components/Board';
 import CreditTracker from './components/CreditTracker';
 import { COURSE_COLORS } from './constants';
 
@@ -85,10 +84,6 @@ const App: React.FC = () => {
         );
       case 'major':
         return <MajorRecommender />;
-      case 'liberal':
-        return <LiberalArtsRecommender />;
-      case 'board':
-        return <Board />;
       case 'chatbot':
         return <CourseChatbot />;
       default:

@@ -1,10 +1,9 @@
+
 import React from 'react';
 import { AppView } from '../types';
 import HomeIcon from './icons/HomeIcon';
 import ChartBarIcon from './icons/ChartBarIcon';
 import ChatBubbleIcon from './icons/ChatBubbleIcon';
-import BookIcon from './icons/BookIcon';
-import ClipboardListIcon from './icons/ClipboardListIcon';
 
 interface NavbarProps {
   activeView: AppView;
@@ -14,9 +13,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ activeView, setActiveView }) => {
   const navItems = [
     { id: 'major', label: '전공', icon: ChartBarIcon },
-    { id: 'liberal', label: '교양', icon: BookIcon },
     { id: 'timetable', label: '홈', icon: HomeIcon },
-    { id: 'board', label: '게시판', icon: ClipboardListIcon },
     { id: 'chatbot', label: 'AI 채팅', icon: ChatBubbleIcon },
   ] as const;
 

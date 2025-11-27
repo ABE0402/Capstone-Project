@@ -67,29 +67,22 @@ export const getLiberalArtsRecommendation = async (keywords: string, purpose: st
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: `
-        당신은 대학생들의 수강신청을 도와주는 선배 멘토입니다.
-        학생의 성향과 니즈에 맞춰서 '교양 과목'을 추천해주세요.
+        당신은 대학교 학업 상담사입니다. 학생의 관심사와 성향에 맞춰 교양 과목을 추천해주세요.
 
         학생 정보:
         - 관심 키워드: ${keywords}
         - 수강 목적: ${purpose}
-        - 선호하는 수업 스타일: ${style}
+        - 선호 수업 스타일: ${style}
 
-        위 정보를 바탕으로 대학생이 들을만한 일반적인 교양 과목 주제 3~5가지를 추천해주세요.
-        (특정 대학교의 실존 과목명이 아니어도 되며, '심리학의 이해', '생활 속의 법률' 같이 통용되는 과목명을 사용하세요.)
-
-        답변 형식 (Markdown):
-        1. **추천 과목명** (예: 🧠 인간 심리의 이해)
-           - **추천 이유**: 학생의 상황과 연결지어 설명
-           - **예상 수업 내용**: 간단한 설명
-
-        친근하고 도움이 되는 말투로 작성해주세요.
+        위 정보를 바탕으로 3가지 정도의 교양 과목 주제나 실제 개설될 법한 과목명을 추천하고, 
+        각 과목이 왜 이 학생에게 적합한지 간단히 설명해주세요.
+        답변은 한국어로 작성해주세요.
       `,
     });
     return response.text || "추천 결과를 생성하지 못했습니다.";
   } catch (error) {
     console.error("Error getting liberal arts recommendation:", error);
-    return "죄송합니다. 교양 추천을 생성하는 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+    return "죄송합니다. 추천을 생성하는 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
   }
 };
 

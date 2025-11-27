@@ -31,5 +31,4 @@ export interface Message {
   sender: 'user' | 'ai';
 }
 
-// Added 'liberal' and 'board' to AppView
-export type AppView = 'timetable' | 'major' | 'liberal' | 'board' | 'chatbot';
+export type AppView = 'timetable' | 'major' | 'chatbot';
